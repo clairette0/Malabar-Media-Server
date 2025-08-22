@@ -93,7 +93,7 @@ void ui_Screen1_screen_init(void)
     lv_obj_set_x(ui_ssidlabel, -2);
     lv_obj_set_y(ui_ssidlabel, -91);
     lv_obj_set_align(ui_ssidlabel, LV_ALIGN_CENTER);
-    lv_label_set_text(ui_ssidlabel, " Jcorp_Nomad");
+    lv_label_set_text(ui_ssidlabel, " Malabar_Media_Server");
     lv_obj_set_style_text_color(ui_ssidlabel, lv_color_hex(0xA5E0F9), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui_ssidlabel, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui_ssidlabel, &ui_font_Font1, LV_PART_MAIN | LV_STATE_DEFAULT);

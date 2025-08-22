@@ -1,4 +1,4 @@
-//Jcorp Nomad Project
+//Malabar Media Server Project
 #include "Arduino.h"
 #define FF_USE_FASTSEEK 1
 #define SD_FREQ_KHZ 10000         // ✱✱ VERY IMPORTANT SETTING ✱✱
@@ -50,7 +50,7 @@ struct AdminSettings {
   String rgbMode = "off";
   String rgbColor = "#ff0000";
   String adminPassword = "";
-  String wifiSSID = "Jcorp_Nomad";
+  String wifiSSID = "Malabar_Media_Server";
   String wifiPassword = "password";
   int brightness = 230;
   bool autoGenerateMedia = false;
@@ -112,7 +112,7 @@ bool loadSettings() {
   settings.rgbMode = doc["rgbMode"] | "off";
   settings.rgbColor = doc["rgbColor"] | "#ff0000";
   settings.adminPassword = doc["adminPassword"] | "";
-  settings.wifiSSID = doc["wifiSSID"] | "Jcorp_Nomad";
+  settings.wifiSSID = doc["wifiSSID"] | "Malabar_Media_Server";
   settings.wifiPassword = doc["wifiPassword"] | "password";
   settings.brightness = doc["brightness"] | 230;
   settings.autoGenerateMedia = doc["autoGenerateMedia"] | false;
@@ -582,10 +582,10 @@ void handleOPDSRoot(AsyncWebServerRequest *request) {
                    "<feed xmlns=\"http://www.w3.org/2005/Atom\" "
                    "xmlns:opds=\"http://opds-spec.org/2010/catalog\">\n");
 
-    opdsWrite(res, "  <id>urn:uuid:nomad-opds-root</id>\n"
-                   "  <title>Nomad OPDS Catalog</title>\n"
+    opdsWrite(res, "  <id>urn:uuid:malabar-opds-root</id>\n"
+                   "  <title>Malabar OPDS Catalog</title>\n"
                    "  <updated>2025-07-12T12:00:00Z</updated>\n"
-                   "  <author><name>Nomad Server</name></author>\n");
+                   "  <author><name>Malabar Server</name></author>\n");
 
     // Add required navigation links
     opdsWrite(res, "  <link rel=\"self\" href=\"" + absURL("/opds/root.xml") + "\" "
@@ -595,7 +595,7 @@ void handleOPDSRoot(AsyncWebServerRequest *request) {
 
     opdsWrite(res, "  <entry>\n"
                    "    <title>All Books</title>\n"
-                   "    <id>urn:uuid:nomad-opds-books</id>\n"
+                   "    <id>urn:uuid:malabar-opds-books</id>\n"
                    "    <updated>2025-07-12T12:00:00Z</updated>\n"
                    "    <link rel=\"http://opds-spec.org/catalog\" "
                    "type=\"application/atom+xml;profile=opds-catalog;kind=acquisition\" "
@@ -617,7 +617,7 @@ void handleOPDSBooks(AsyncWebServerRequest *request) {
                   "<feed xmlns=\"http://www.w3.org/2005/Atom\" "
                   "xmlns:opds=\"http://opds-spec.org/2010/catalog\">\n");
     opdsWrite(res,
-      "  <id>urn:uuid:nomad-opds-books</id>\n"
+      "  <id>urn:uuid:malabar-opds-books</id>\n"
       "  <title>All Books</title>\n"
       "  <updated>"+rfc3339Now()+"</updated>\n"
       "  <link rel=\"self\"  href=\""+absURL("/opds/books.xml")+"\" "
@@ -660,7 +660,7 @@ void handleOPDSBooks(AsyncWebServerRequest *request) {
         String base = fn.substring(fn.lastIndexOf('/')+1);
         base = base.substring(0, base.lastIndexOf('.'));  
         String safeTitle = xmlEscape(base);                 
-        String safeId    = "urn:uuid:nomad-book-" + slugify(base);  
+        String safeId    = "urn:uuid:malabar-book-" + slugify(base);  
         String mime = fn.endsWith(".epub") ?
                       "application/epub+zip" : "application/pdf";
 
@@ -1182,7 +1182,7 @@ void sdScanTask(void* pvParameters) {
 void setup() {
     Serial.begin(115200);
     delay(100);
-    Serial.println("=== Booting Nomad (debug) ===");
+    Serial.println("=== Booting Malabar Media Server (debug) ===");
     pinMode(BOOT_BUTTON_PIN, INPUT_PULLUP);
 
     if (get_boot_mode() == USB_MODE) {
@@ -1302,7 +1302,7 @@ Set_Backlight(settings.brightness);  // now using loaded value
     //.m3u playlist endpoint
     server.on("/playlist.m3u", HTTP_GET, [](AsyncWebServerRequest *request){
         String playlist = "#EXTM3U\n";
-    server.on("/nomad.m3u", HTTP_GET, [](AsyncWebServerRequest *request) {
+    server.on("/malabar.m3u", HTTP_GET, [](AsyncWebServerRequest *request) {
         // internally call the same code or just redirect
         request->redirect("/playlist.m3u");
     });
@@ -1354,7 +1354,7 @@ Set_Backlight(settings.brightness);  // now using loaded value
     //.m3u playlist endpoint
     server.on("/playlist.m3u", HTTP_GET, [](AsyncWebServerRequest *request){
         String playlist = "#EXTM3U\n";
-    server.on("/nomad.m3u", HTTP_GET, [](AsyncWebServerRequest *request) {
+    server.on("/malabar.m3u", HTTP_GET, [](AsyncWebServerRequest *request) {
         // internally call the same code or just redirect
         request->redirect("/playlist.m3u");
     });
@@ -1434,10 +1434,10 @@ Set_Backlight(settings.brightness);  // now using loaded value
           </specVersion>
           <device>
             <deviceType>urn:schemas-upnp-org:device:MediaServer:1</deviceType>
-            <friendlyName>Nomad Media Server</friendlyName>
-            <manufacturer>Jcorp</manufacturer>
-            <modelName>Nomad DLNA</modelName>
-            <UDN>uuid:ESP32-DLNA-NOMAD</UDN>
+            <friendlyName>Malabar Media Server</friendlyName>
+            <manufacturer>Malabar</manufacturer>
+            <modelName>Malabar DLNA</modelName>
+            <UDN>uuid:ESP32-DLNA-MALABAR</UDN>
           </device>
         </root>
       )rawliteral");
@@ -1452,9 +1452,9 @@ Set_Backlight(settings.brightness);  // now using loaded value
           </specVersion>
           <device>
             <deviceType>urn:schemas-upnp-org:device:MediaServer:1</deviceType>
-            <friendlyName>Nomad Media Server</friendlyName>
-            <manufacturer>Jcorp</manufacturer>
-            <modelName>Nomad</modelName>
+            <friendlyName>Malabar Media Server</friendlyName>
+            <manufacturer>Malabar</manufacturer>
+            <modelName>Malabar</modelName>
             <modelNumber>1</modelNumber>
             <UDN>uuid:ESP32-DLNA-FAKE-1234</UDN>
           </device>
@@ -1471,10 +1471,10 @@ Set_Backlight(settings.brightness);  // now using loaded value
           </specVersion>
           <device>
             <deviceType>urn:schemas-upnp-org:device:MediaServer:1</deviceType>
-            <friendlyName>Nomad Media</friendlyName>
-            <manufacturer>JCorp</manufacturer>
-            <modelName>ESP32-Nomad</modelName>
-            <UDN>uuid:nomad-dlna-esp32</UDN>
+            <friendlyName>Malabar Media</friendlyName>
+            <manufacturer>Malabar</manufacturer>
+            <modelName>ESP32-Malabar</modelName>
+            <UDN>uuid:malabar-dlna-esp32</UDN>
           </device>
         </root>
       )rawliteral");
@@ -1516,10 +1516,10 @@ Set_Backlight(settings.brightness);  // now using loaded value
           </specVersion>
           <device>
             <deviceType>urn:schemas-upnp-org:device:MediaServer:1</deviceType>
-            <friendlyName>Nomad Media Server</friendlyName>
-            <manufacturer>Jcorp</manufacturer>
-            <modelName>Nomad DLNA</modelName>
-            <UDN>uuid:ESP32-DLNA-NOMAD</UDN>
+            <friendlyName>Malabar Media Server</friendlyName>
+            <manufacturer>Malabar</manufacturer>
+            <modelName>Malabar DLNA</modelName>
+            <UDN>uuid:ESP32-DLNA-MALABAR</UDN>
           </device>
         </root>
       )rawliteral");
@@ -1534,9 +1534,9 @@ Set_Backlight(settings.brightness);  // now using loaded value
           </specVersion>
           <device>
             <deviceType>urn:schemas-upnp-org:device:MediaServer:1</deviceType>
-            <friendlyName>Nomad Media Server</friendlyName>
-            <manufacturer>Jcorp</manufacturer>
-            <modelName>Nomad</modelName>
+            <friendlyName>Malabar Media Server</friendlyName>
+            <manufacturer>Malabar</manufacturer>
+            <modelName>Malabar</modelName>
             <modelNumber>1</modelNumber>
             <UDN>uuid:ESP32-DLNA-FAKE-1234</UDN>
           </device>
@@ -1553,10 +1553,10 @@ Set_Backlight(settings.brightness);  // now using loaded value
           </specVersion>
           <device>
             <deviceType>urn:schemas-upnp-org:device:MediaServer:1</deviceType>
-            <friendlyName>Nomad Media</friendlyName>
-            <manufacturer>Jcorp</manufacturer>
-            <modelName>ESP32-Nomad</modelName>
-            <UDN>uuid:nomad-dlna-esp32</UDN>
+            <friendlyName>Malabar Media</friendlyName>
+            <manufacturer>Malabar</manufacturer>
+            <modelName>ESP32-Malabar</modelName>
+            <UDN>uuid:malabar-dlna-esp32</UDN>
           </device>
         </root>
       )rawliteral");
@@ -1700,9 +1700,9 @@ Set_Backlight(settings.brightness);  // now using loaded value
           </specVersion>
           <device>
             <deviceType>urn:schemas-upnp-org:device:MediaServer:1</deviceType>
-            <friendlyName>Nomad Media Server</friendlyName>
-            <manufacturer>Jcorp</manufacturer>
-            <modelName>Nomad</modelName>
+            <friendlyName>Malabar Media Server</friendlyName>
+            <manufacturer>Malabar</manufacturer>
+            <modelName>Malabar</modelName>
             <UDN>uuid:ESP32-DLNA-FAKE-1234</UDN>
           </device>
         </root>
