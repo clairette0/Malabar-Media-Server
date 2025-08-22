@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nomad Admin Panel</title>
+  <title>Malabar Admin Panel</title>
   <style>
     :root {
       --primary: #007bff;
@@ -711,7 +711,7 @@
 </div>
   <header>
     <a href="http://192.168.4.1/menu" class="menu-button">Menu</a>
-    <h1>Nomad Admin Panel</h1>
+    <h1>Malabar Admin Panel</h1>
   </header>
   <div class="admin-bar">
     <button id="btn-restart">Restart Device</button>
@@ -865,7 +865,7 @@ async function loadSettings() {
 
     if (s.adminPassword && s.adminPassword.trim() !== "") {
       // Check if flag is set
-      if (localStorage.getItem("nomad_admin_logged_in") === "true") {
+      if (localStorage.getItem("malabar_admin_logged_in") === "true") {
         console.log("🔓 Admin session already authenticated, skipping overlay.");
       } else {
         console.log("🔒 adminPassword is set, kicking off password gate");
@@ -893,7 +893,7 @@ async function loadSettings() {
             if (attempt === s.adminPassword) {
               pwError.classList.add('hidden');
               pwOverlay.classList.add('hidden');
-              localStorage.setItem("nomad_admin_logged_in", "true"); 
+              localStorage.setItem("malabar_admin_logged_in", "true"); 
               pwSubmit.removeEventListener('click', submitHandler);
               pwInput.removeEventListener('keyup', keyHandler);
               resolve();
@@ -1030,14 +1030,14 @@ async function loadSettings() {
       }
       // stash for saveSettings()
       window._pendingAdminPassword = pass;
-      localStorage.removeItem("nomad_admin_logged_in");  
+      localStorage.removeItem("malabar_admin_logged_in");  
       saveSettings();
       alert('Admin password updated.');
     }
     document.getElementById("btn-disable-password").addEventListener("click", () => {
       if (confirm("Are you sure you want to disable the admin password?\nThis will make the admin panel accessible without authentication.")) {
         window._pendingAdminPassword = "";
-        localStorage.removeItem("nomad_admin_logged_in");  
+        localStorage.removeItem("malabar_admin_logged_in");  
         saveSettings();
         alert("Admin password disabled.");
       }

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!--  Nomad Books Page -->
+<!--  Malabar Books Page -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jcorp Nomad Media Server – Books">
-    <title>Nomad • Books</title>
+    <meta name="description" content="Malabar Media Server Media Server – Books">
+    <title>Malabar • Books</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script src="epub.min.js"></script>
     <style>
@@ -90,7 +90,7 @@
         </div>
     </div>
 
-    <footer>© <span id="year"></span> Jcorp Nomad</footer>
+    <footer>© <span id="year"></span> Malabar Media Server</footer>
 
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
@@ -104,7 +104,7 @@
         const downloadBtn = document.getElementById('downloadButton');
 
         const fileExt = f=>f.slice(f.lastIndexOf('.')).toLowerCase();
-        const booksKey = 'nomadBooksSize';
+        const booksKey = 'malabarBooksSize';
         let books = [], filtered = [], debounceTimer = null, currentBook = null;
 
         let currentSize = localStorage.getItem(booksKey) || 'medium';

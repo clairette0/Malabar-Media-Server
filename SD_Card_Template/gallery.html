@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!--  Nomad Gallery Page -->
+<!--  Malabar Gallery Page -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Jcorp Nomad Media Server – Images & Video" />
-  <title>Nomad • Gallery</title>
+  <meta name="description" content="Malabar Media Server Media Server – Images & Video" />
+  <title>Malabar • Gallery</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
     :root {
@@ -352,7 +352,7 @@
       <div id="modalInfo" class="modal-info"></div>
     </div>
   </div>
-  <footer>© <span id="year"></span> Jcorp Nomad</footer>
+  <footer>© <span id="year"></span> Malabar Media Server</footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -369,7 +369,7 @@
 
     let images = [],
       filtered = [];
-    let currentSize = localStorage.getItem('nomadImagesSize') || 'medium';
+    let currentSize = localStorage.getItem('malabarImagesSize') || 'medium';
     let currentPage = 1,
       pageSize = parseInt(pageSizeInput.value, 10);
     let wasDragging = false;
@@ -388,7 +388,7 @@
         btn.classList.toggle('active', btn.dataset.size === size)
       );
       grid.className = `media-grid ${size}`; 
-      localStorage.setItem('nomadImagesSize', size);
+      localStorage.setItem('malabarImagesSize', size);
     }
 
     viewButtons.forEach((btn) =>

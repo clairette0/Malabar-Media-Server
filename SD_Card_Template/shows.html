@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!--  Nomad Shows Page  -->
+<!--  Malabar Shows Page  -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="description" content="Jcorp Nomad Media Server – Shows">
-  <title>Nomad • Shows</title>
+  <meta name="description" content="Malabar Media Server Media Server – Shows">
+  <title>Malabar • Shows</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <style>
@@ -106,7 +106,7 @@
     </div>
   </div>
 
-  <footer>© <span id="year"></span> Jcorp Nomad</footer>
+  <footer>© <span id="year"></span> Malabar Media Server</footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -125,12 +125,12 @@
     const videoPlayer   = document.getElementById('videoPlayer');
     const nextBtn       = document.getElementById('nextBtn');
 
-    let curSize = localStorage.getItem('nomadShowsSize') || 'medium';
+    let curSize = localStorage.getItem('malabarShowsSize') || 'medium';
     function setViewSize(sz) {
       curSize = sz;
       viewBtns.forEach(b => b.classList.toggle('active', b.dataset.size === sz));
       grid.className = `media-grid ${sz}`;
-      localStorage.setItem('nomadShowsSize', sz);
+      localStorage.setItem('malabarShowsSize', sz);
     }
     viewBtns.forEach(b => b.addEventListener('click', () => setViewSize(b.dataset.size)));
     setViewSize(curSize);
@@ -242,7 +242,7 @@
         stallTimer = setTimeout(() => {
           if (!p.paused && p.readyState < 3 && retryCount < MAX_RETRIES) {
             retryCount++;
-            console.log(`[Nomad] Stall → retry #${retryCount}`);
+            console.log(`[Malabar] Stall → retry #${retryCount}`);
             p.src = `${lastSrc}${lastSrc.includes('?')?'&':'?'}_=${Date.now()}`;
             p.load();
             p.currentTime = p.currentTime;

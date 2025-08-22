@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="description" content="Jcorp Nomad Media Server – Games">
-  <title>Nomad • Games</title>
+  <meta name="description" content="Malabar Media Server Media Server – Games">
+  <title>Malabar • Games</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <style>
     :root {
@@ -190,7 +190,7 @@
     </div>
   </main>
 
-  <footer>© <span id="year"></span> Jcorp Nomad</footer>
+  <footer>© <span id="year"></span> Malabar Media Server</footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -205,13 +205,13 @@
     let games         = [];
     let filtered      = [];
     let debounceTimer = null;
-    let currentSize   = localStorage.getItem('nomadGamesSize') || 'medium';
+    let currentSize   = localStorage.getItem('malabarGamesSize') || 'medium';
 
     function setViewSize(size) {
       currentSize = size;
       grid.className = `media-grid ${size}`;
       viewButtons.forEach(b => b.classList.toggle('active', b.dataset.size === size));
-      localStorage.setItem('nomadGamesSize', size);
+      localStorage.setItem('malabarGamesSize', size);
     }
     setViewSize(currentSize);
     viewButtons.forEach(b => b.addEventListener('click', () => setViewSize(b.dataset.size)));

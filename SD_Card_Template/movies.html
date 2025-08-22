@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<!--  Nomad Movies Page  -->
+<!--  Malabar Movies Page  -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Jcorp Nomad Media Server – Movies">
-  <title>Nomad • Movies</title>
+  <meta name="description" content="Malabar Media Server Media Server – Movies">
+  <title>Malabar • Movies</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <style>
@@ -99,7 +99,7 @@
     </div>
   </div>
 
-  <footer>© <span id="year"></span> Jcorp Nomad</footer>
+  <footer>© <span id="year"></span> Malabar Media Server</footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -118,14 +118,14 @@
     let filtered        = [];
     let debounceTimer   = null;
     let currentMovie    = null;
-    let currentSize     = localStorage.getItem('nomadMoviesSize') || 'medium';
+    let currentSize     = localStorage.getItem('malabarMoviesSize') || 'medium';
 
     // === view size buttons ===
     function setViewSize(size) {
       currentSize = size;
       viewButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.size === size));
       gridElement.className = `media-grid ${size}`;
-      localStorage.setItem('nomadMoviesSize', size);
+      localStorage.setItem('malabarMoviesSize', size);
     }
     setViewSize(currentSize);
     viewButtons.forEach(btn => btn.addEventListener('click', () => setViewSize(btn.dataset.size)));
@@ -217,7 +217,7 @@
         stallTimer = setTimeout(() => {
           if (!player.paused && player.readyState < 3 && retryCount < MAX_RETRIES) {
             retryCount++;
-            console.log(`[Nomad] Stall detected → retry #${retryCount}`);
+            console.log(`[Malabar] Stall detected → retry #${retryCount}`);
             player.src = `${lastSourceUrl}${lastSourceUrl.includes('?') ? '&' : '?'}_=${Date.now()}`;
             player.load();
             player.currentTime = player.currentTime;
