@@ -1,8 +1,8 @@
-# <div align="center">Jcorp Nomad</div>
+# <div align="center">Malabar Media</div>
 
 
 <div align="center">
-  <img src="Screenshot 2025-08-10 220031.png" alt="Jcorp Nomad Offline Media Server" width="800">
+  <img src="Screenshot 2025-08-10 220031.png" alt="Malabar Media Offline Media Server" width="800">
 </div>
 
 <p align="center"><b>A portable, offline media server powered by the ESP32-S3 in a thumbdrive form factor.</b><br>
@@ -128,7 +128,7 @@ Use this branch if you want the most up to date features, improved stability, an
 
 ## What is Nomad
 
-Jcorp Nomad is an open-source offline media server built for travel, remote work, classrooms, camping, and more. It runs entirely on an ESP32-S3 dev board, creates a local Wi-Fi hotspot, and serves media through a browser-accessible interface. It does not require internet access and works similarly to in-flight entertainment systems. It also allows multiple users watching seperate media streams at the same time. 
+Malabar Media is an open-source offline media server built for travel, remote work, classrooms, camping, and more. It runs entirely on an ESP32-S3 dev board, creates a local Wi-Fi hotspot, and serves media through a browser-accessible interface. It does not require internet access and works similarly to in-flight entertainment systems. It also allows multiple users watching seperate media streams at the same time.
 
 This project is designed to be compact, simple, and easily modifiable. It includes optional 3D-printable hardware and a fully open source firmware and web interface.
 
@@ -315,7 +315,7 @@ Improve playback for long-form audio by adding bookmarks, chapter display, and s
 ## Build Guide on Instructables
 
 Looking for a step-by-step tutorial?  
-Check out the full build guide on **Instructables** for detailed instructions, photos, and tips on setting up Jcorp Nomad.
+Check out the full build guide on **Instructables** for detailed instructions, photos, and tips on setting up Malabar Media.
 
 👉 [Read the Instructables Guide](https://www.instructables.com/Jcorp-Nomad-Mini-WIFI-Media-Server/) 
 

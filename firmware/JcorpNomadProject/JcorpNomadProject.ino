@@ -1,7 +1,7 @@
-//Jcorp Nomad Project
+//Malabar Media Project
 #include "Arduino.h"
 #define FF_USE_FASTSEEK 1
-#define SD_FREQ_KHZ 10000         // ✱✱ VERY IMPORTANT SETTING ✱✱
+#define SD_FREQ_KHZ 12000         // ✱✱ VERY IMPORTANT SETTING ✱✱
                                   // This controls how fast reads from your SD Card can go, If you have a name brand fancy card you can go faster with better results. Check what your card recomends. 
                                   // 10 000 kHz (10 MHz) = safest 
                                   // 12000 kHz (12 MHz) = good 
@@ -50,7 +50,7 @@ struct AdminSettings {
   String rgbMode = "off";
   String rgbColor = "#ff0000";
   String adminPassword = "";
-  String wifiSSID = "Jcorp_Nomad";
+  String wifiSSID = "Malabar-Media-Server";
   String wifiPassword = "password";
   int brightness = 230;
   bool autoGenerateMedia = false;
@@ -112,7 +112,8 @@ bool loadSettings() {
   settings.rgbMode = doc["rgbMode"] | "off";
   settings.rgbColor = doc["rgbColor"] | "#ff0000";
   settings.adminPassword = doc["adminPassword"] | "";
-  settings.wifiSSID = doc["wifiSSID"] | "Jcorp_Nomad";
+  settings.wifiSSID = doc["wifiSSID"] | "Malabar-Media-Server
+";
   settings.wifiPassword = doc["wifiPassword"] | "password";
   settings.brightness = doc["brightness"] | 230;
   settings.autoGenerateMedia = doc["autoGenerateMedia"] | false;
